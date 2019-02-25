@@ -23,7 +23,7 @@ const Menu = withRouter(withAuth(({ auth: { user, logout }, history }) => {
       </Nav>
       <Nav>
         { !user && <MenuLink to="/login">Login</MenuLink>}
-        { user && <Nav.Link href="#" onClick={logoutUser}>Logout</Nav.Link>}
+        { user && <Nav.Link active={false} href="#" onClick={logoutUser}>Logout</Nav.Link>}
       </Nav>
     </Navbar>
   )
