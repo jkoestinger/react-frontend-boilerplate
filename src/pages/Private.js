@@ -1,7 +1,8 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
+import withAuth from '../containers/withAuth'
 
-function Private({ user }) {
+const Private = ({ auth: { user } }) => {
   return (
     <div>
       <h1>Your personnal info</h1>
@@ -39,4 +40,4 @@ function Private({ user }) {
   )
 }
 
-export default Private
+export default withAuth(Private)

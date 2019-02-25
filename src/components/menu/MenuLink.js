@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 function MenuLink({ children, to, exact }) {
   return (
-    <NavLink exact={exact} className="nav-link" to={to}>{children}</NavLink>
+    <NavLink activeClassName="active" exact={exact} className="nav-link" to={to}>{children}</NavLink>
   )
 }
 

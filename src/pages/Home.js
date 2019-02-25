@@ -1,5 +1,6 @@
 import React from 'react'
 import Alert from 'react-bootstrap/Alert'
+import withAuth from '../containers/withAuth';
 
 function Home({ user }) {
   return (
@@ -13,4 +14,4 @@ function Home({ user }) {
   )
 }
 
-export default Home
+export default withAuth(Home)
