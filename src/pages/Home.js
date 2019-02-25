@@ -2,7 +2,7 @@ import React from 'react'
 import Alert from 'react-bootstrap/Alert'
 import withAuth from '../containers/withAuth';
 
-function Home({ user }) {
+function Home({ auth: { user } }) {
   return (
     <div>
       <h1>This is a public page</h1>

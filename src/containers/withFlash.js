@@ -3,26 +3,19 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state, ownProps) => {
   // console.log(ownProps)
-  return {
-    ...ownProps,
-    flash: {
-      ...ownProps.flash,
-      ...state.flash
-    }
-  }
+  return state.flash
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   // console.log(ownProps)
   return {
-    ...ownProps,
     errorMessage: (message) => {
       dispatch(errorMessage(message))
     },
     successMessage: (message) => {
       dispatch(successMessage(message))
     },
-    clearFlash: () => {
+    clear: () => {
       dispatch(clear())
     }
   }
@@ -30,5 +23,14 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  (state, dispatch, ownProps) => {
+    return {
+      ...ownProps,
+      flash: {
+        ...state,
+        ...dispatch,
+      }
+    }
+  }
 )

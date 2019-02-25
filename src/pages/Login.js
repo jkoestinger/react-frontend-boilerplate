@@ -7,11 +7,11 @@ import { withRouter } from 'react-router-dom'
 
 const ENDPOINT = 'localhost:8000/api'
 
-function Login({ login, clearFlash, errorMessage, successMessage, history }) {
+function Login({ auth: { login }, flash: { clear, errorMessage, successMessage }, history }) {
 
   const loginUser = async (values) => {
     // this.setState({error: null})
-    clearFlash()
+    clear()
     try {
       const res = await axios.post(`http://${ENDPOINT}/login/`, {
         username: values.username,
@@ -29,7 +29,7 @@ function Login({ login, clearFlash, errorMessage, successMessage, history }) {
       login(access, userRes.data)
       history.push('/')
       successMessage('You are successfully logged in :)')
-      setTimeout(clearFlash, 5000)
+      setTimeout(clear, 5000)
     } catch(err) {
       console.error(err)
       errorMessage('An error occurred... did you set the right credentials?')

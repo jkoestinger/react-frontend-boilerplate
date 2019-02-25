@@ -18,7 +18,7 @@ class App extends Component {
     const user = JSON.parse(localStorage.getItem('auth-user'))
     const token = localStorage.getItem('auth-token')
     if(user && token) {
-      this.props.login(token, user)
+      this.props.auth.login(token, user)
     }
   }
 

@@ -6,7 +6,7 @@ import withAuth from '../../containers/withAuth';
 import { withRouter } from 'react-router-dom'
 
 
-const Menu = withRouter(withAuth(({ auth: { user }, logout, history }) => {
+const Menu = withRouter(withAuth(({ auth: { user, logout }, history }) => {
   const logoutUser = () => {
     logout()
     localStorage.removeItem('auth-user')

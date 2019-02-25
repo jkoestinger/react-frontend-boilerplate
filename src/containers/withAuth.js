@@ -2,9 +2,7 @@ import { login, logout } from '../store/auth/actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
-  return {
-    auth: state.auth
-  }
+  return state.auth
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -20,5 +18,14 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  (state, dispatch, ownProps) => {
+    return {
+      ...ownProps,
+      auth: {
+        ...state,
+        ...dispatch
+      }
+    }
+  }
 )
