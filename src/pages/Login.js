@@ -4,10 +4,11 @@ import LoginForm from '../components/loginForm/LoginForm';
 import withAuth from '../containers/withAuth';
 import withFlash from '../containers/withFlash';
 import { withRouter } from 'react-router-dom'
+import { animated } from 'react-spring/renderprops'
 
 const ENDPOINT = 'localhost:8000/api'
 
-function Login({ auth: { login }, flash: { clear, errorMessage, successMessage }, history }) {
+function Login({ auth: { login }, flash: { clear, errorMessage, successMessage }, history, style }) {
 
   const loginUser = async (values) => {
     // this.setState({error: null})
@@ -37,9 +38,9 @@ function Login({ auth: { login }, flash: { clear, errorMessage, successMessage }
   }
 
   return (
-    <div>
+    <animated.div style={{ ...style, position: 'relative', top: 0 }}>
       <LoginForm onSubmit={loginUser} />
-    </div>
+    </animated.div>
   )
 }
 

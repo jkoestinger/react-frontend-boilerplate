@@ -1,10 +1,11 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
 import withAuth from '../containers/withAuth'
+import { animated } from 'react-spring/renderprops'
 
-const Private = ({ auth: { user } }) => {
+const Private = ({ auth: { user }, style }) => {
   return (
-    <div>
+    <animated.div style={{ ...style, position: 'absolute', top: 0 }}>
       <h1>Your personnal info</h1>
       <Table>
         <thead>
@@ -36,7 +37,7 @@ const Private = ({ auth: { user } }) => {
           </tr>
         </tbody>
       </Table>
-    </div>
+    </animated.div>
   )
 }
 
