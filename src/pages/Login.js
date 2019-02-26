@@ -6,7 +6,7 @@ import withFlash from '../containers/withFlash';
 import { withRouter } from 'react-router-dom'
 import { animated } from 'react-spring/renderprops'
 
-const ENDPOINT = 'localhost:8000/api'
+const ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'localhost:8000/api'
 
 function Login({ auth: { login }, flash: { clear, errorMessage, successMessage }, history, style }) {
 
